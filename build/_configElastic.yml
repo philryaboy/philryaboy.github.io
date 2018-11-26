@@ -1,8 +1,0 @@
-elastic: true
-exclude:
-  - vendor
-  - build
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - pdf

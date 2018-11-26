@@ -1,185 +1,43 @@
-name: "IBM Mobile Foundation Developer Center"
-description: "Develop, test, manage, and secure your native and hybrid apps. Use the labs, blog posts, tutorials and videos to learn about Mobile Foundation on IBM Cloud or on-premise. Download product components and samples related to Mobile Foundation."
-url: https://mobilefirstplatform.ibmcloud.com
-languages: ["de", "en", "es", "fr", "ja", "ko", "pt-br", "ru", "zh-hans", "it"]
-defaultLanguage: en
-languageNames:
-  de: Deutsch
-  en: English
-  es: Spanish
-  fr: French
-  ja: Japanese
-  ko: Korean
-  pt-br: Portugese
-  ru: Russian
-  it: Italian
-  zh-hans: Chinese
-source_url: https://github.ibm.com/MFPSamples/DevCenter
-permalink: pretty
-paginate: 40
-paginate_path: "/blog/:num/"
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Your awesome title
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
 markdown: kramdown
-generate_redirects: false
-print_pdf: false
-kramdown:
-  input: GFM
-  hard_wrap: false
+theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap
-sass:
-  style: :compressed
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      category: blog
-      layout: blogpost
-      show_disqus: true
-      pinned: false
-      indexed: true
-  -
-    scope:
-      path: "blog/rss"
-    values:
-      indexed: false
-  -
-    scope:
-      path: "feed.xml"
-    values:
-      indexed: false
-  -
-    scope:
-      path: "js"
-    values:
-      indexed: false
-  -
-    scope:
-      path: "css"
-    values:
-      indexed: false
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      category: page
-      indexed: true
-  -
-    scope:
-      path: "tutorials/en"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/de"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/es"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/fr"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/ja"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/ko"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/pt-br"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/ru"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/zh-hans"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "tutorials/it"
-    values:
-      layout: tutorial
-      category: tutorial
-      show_breadcrumb: true
-      show_disqus: true
-      show_in_nav: true
-      print_pdf: true
-  -
-    scope:
-      path: "labs"
-    values:
-      layout: labs
-      show_disqus: true
-      category: lab
-  -
-    scope:
-      path: "pdf"
-    values:
-      layout: pdflist
-      permalink: /:path/:basename:output_ext
-      indexed: false
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

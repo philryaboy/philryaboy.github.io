@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /404
-Disallow: /bluemix-services
-Sitemap: https://mobilefirstplatform.ibmcloud.com/sitemap.xml
