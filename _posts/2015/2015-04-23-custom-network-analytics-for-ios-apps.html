@@ -1,0 +1,143 @@
+---
+title: Custom Network Analytics for iOS Apps
+date: 2015-04-23 10:30:15.000000000 +03:00
+tags:
+- Analytics
+- MobileFirst_Platform
+- iOS
+version:
+- 7.0
+- 7.1
+author:
+  name: Anthony Oliveri
+---
+<h3>Overview</h3>
+<p>In the 7.0 release of MobileFirst Platform Foundation, the <code>WLAnalytics</code> API for native iOS has been expanded to include 2 new utility methods: <code>generateNetworkRequestMetadataWithURL:</code> and <code>generateNetworkResponseMetadataWithResponseData:andTrackingId:</code>. These methods can be used in conjunction with networking APIs to record request metadata and send it to the Analytics server. The advantage of doing so is to have analytics recorded for any network events, even to non-MobileFirst services, while still retaining full control over the implementation of the requests and responses.
+
+<ul>
+    <li> <a href="#Implementing NSURLProtocol"> Implementing NSURLProtocol </a> </li>
+    <li> <a href="#Recording Analytics"> Recording Analytics </a> </li>
+    <li> <a href="#Viewing the Results"> Viewing the Results </a> </li>
+</ul>
+
+<h3 id="Implementing NSURLProtocol">Implementing NSURLProtocol</h3>
+<p>In this example, I will show how to accomplish this using <code>NSURLProtocol</code> to intercept the request and <code>NSURLConnectionDataDelegate</code> to retrieve the response.
+
+<p>The goal of this app is simple: send a URL request to Google Maps and record the response. To start, let's make a button that creates an <code>NSURLRequest</code> and sends it via <code>NSURLConnection</code>.
+
+{% highlight objc linenos %}
+- (IBAction)pingGoogleMaps:(UIButton *)sender {
+    NSURLRequest* myRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/maps"]];
+    [NSURLConnection sendAsynchronousRequest:myRequest queue:[NSOperationQueue currentQueue] completionHandler:nil];
+}
+{% endhighlight %}
+
+<p>To intercept the request and its response, we will subclass <code>NSURLProtocol</code>,
+
+{% highlight objc linenos %}
+#import <Foundation/Foundation.h>
+@interface MyURLProtocol : NSURLProtocol
+@end
+{% endhighlight %}
+
+{% highlight objc linenos %}
+#import "MyURLProtocol.h"
+#import "WLAnalytics.h"
+#import "OCLogger.h"
+@interface MyURLProtocol() <NSURLConnectionDataDelegate>
+@property NSURLConnection* connection;
+@end
+@implementation MyURLProtocol
+#pragma mark NSURLProtocol
++ (BOOL) canInitWithRequest:(NSURLRequest *)request {
+    NSString* allowedURL = @"https://www.google.com/maps";
+    if ( [request.URL.absoluteString isEqualToString:allowedURL] ) {
+        if ( ! [NSURLProtocol propertyForKey:@"MyURLProtocolHandledKey" inRequest:request]) {
+            return YES;
+        }
+    }
+    return NO;
+}
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
+    return request;
+}
+- (void)startLoading {
+    NSMutableURLRequest *newRequest = [self.request mutableCopy];
+    [NSURLProtocol setProperty:@YES forKey:@"MyURLProtocolHandledKey" inRequest:newRequest];
+    self.connection = [NSURLConnection connectionWithRequest:newRequest delegate:self];
+}
+- (void)stopLoading {
+    [self.connection cancel];
+    self.connection = nil;
+}
+{% endhighlight %}
+
+<p>and implement the <code>NSURLConnectionDataDelegate</code> protocol.
+
+{% highlight objc linenos %}
+#pragma mark NSURLConnectionDataDelegate
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.client URLProtocol:self didLoadData:data];
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [self.client URLProtocolDidFinishLoading:self];
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [self.client URLProtocol:self didFailWithError:error];
+}
+@end
+{% endhighlight %}
+
+<blockquoteFor more information on using <code>NSURLProtocol</code>, see <a href="http://www.raywenderlich.com/59982/nsurlprotocol-tutorial">this tutorial</a>.</blockquote>
+
+<h3 id="Recording Analytics"> Recording Analytics </h3>
+<p>In the startLoading method of MyURLProtocol.m, we will generate analytics metadata (which is needed for the data to appear in the Analytics console) and log the request.
+
+{% highlight objc linenos %}
+- (void)startLoading {
+    NSDictionary* analyticsRequestMetadata = [[WLAnalytics sharedInstance] generateNetworkRequestMetadataWithURL:@"https://www.google.com/maps"];
+    self.analyticsTrackingId = analyticsRequestMetadata[@"$trackingid"];
+    [[WLAnalytics sharedInstance] log:@"Google Maps network request" withMetadata:analyticsRequestMetadata];
+    NSMutableURLRequest *newRequest = [self.request mutableCopy];
+    [NSURLProtocol setProperty:@YES forKey:@"MyURLProtocolHandledKey" inRequest:newRequest];
+    self.connection = [NSURLConnection connectionWithRequest:newRequest delegate:self];
+}
+{% endhighlight %}
+<p>We need the <code>analyticsTrackingId</code> property to hold the tracking ID, which is used to map the request to the response.</p>
+<p>Next, we do the same for the response in the <code>connection:didReceiveData:</code> method.</p>
+
+{% highlight objc linenos %}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSDictionary* analyticsResponseMetadata = [[WLAnalytics sharedInstance] generateNetworkResponseMetadataWithResponseData:data andTrackingId:self.analyticsTrackingId];
+    [[WLAnalytics sharedInstance] log:@"Google Maps network response" withMetadata:analyticsResponseMetadata];
+    [self.client URLProtocol:self didLoadData:data];
+}
+{% endhighlight %}
+
+<p>Finally, we need to send the analytics data to the server when the request is complete.</p>
+
+{% highlight objc linenos %}
+- (void)stopLoading {
+    [[WLAnalytics sharedInstance] send];
+    [self.connection cancel];
+    self.connection = nil;
+}
+{% endhighlight %}
+<p>That concludes our setup of the <code>NSURLProtocol</code>. Now we have one remaining step: to register that class in the AppDelegate. This is necessary to ensure that all URL requests are handled by the <code>MyURLProtocol</code> class, no matter where in the app they are sent from.</p>
+
+{% highlight objc linenos %}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [NSURLProtocol registerClass:[MyURLProtocol class]];
+    return YES;
+}
+{% endhighlight %}
+
+<p>Here is a sample app that implements all of the above. To run it, create a native iOS environment in MobileFirst Platform Studio, and copy the worklight.plist file to the Xcode project: <a href="https://github.com/AnthonyOliveri/Custom-Network-Requests">CustomNetworkAnalytics_iOS_app</a></p>
+
+<h2 id="Viewing the Results">Viewing the Results</h2>
+<p>The test app is now complete! When the app is run and the request sent, the message "Analytics data successfully sent to server" should appear at the bottom of the Xcode console, provided everything is set up properly. Now the request data should appear in the MobileFirst Operational Analytics console. If we navigate to the Network tab and go to Other Requests, we can see the average roundtrip time, average data size, and number of requests to Google Maps.</p>
+
+<img alt="missing_alt" src="{{ site.baseurl }}/assets/backup/analytics_console_2.png"  />

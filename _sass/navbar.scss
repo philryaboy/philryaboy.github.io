@@ -1,0 +1,206 @@
+//colors
+$color_rhino_approx: #264a60;
+$white: white;
+$mine_shaft: #1d3649;
+$color_wild_sand_approx: #f5f5f5;
+$color_celeste_approx: #ccc;
+
+.navbar {
+  &.navbar-default {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: $color_rhino_approx;
+    border-color: $color_rhino_approx;
+    .logo {
+      margin-top: -2px;
+      margin-left: 0px;
+      font-size: 140%;
+      color: $white;
+      .mobilefirst {
+        font-weight: bold;
+      }
+      .dev {
+        color: $white;
+      }
+      @media (max-width: $screen-xs-max) {
+          margin-left: 16px;
+          margin-top: 4px;
+      }
+    }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $white;
+          @media (max-width: $screen-sm-max) {
+            padding-left: 5px;
+            padding-right: 7px;
+          }
+          &:hover {
+            color: $white;
+          }
+        }
+        &.open {
+          > a {
+            background-color: $mine_shaft;
+            color: $white;
+            &:hover {
+              background-color: $mine_shaft;
+              border: 1px solid #00BFFF;
+              color: $white;
+            }
+            &:focus {
+              background-color: $mine_shaft;
+              border: 1px solid #00BFFF;
+              color: $white;
+            }
+          }
+          ul {
+            > li:hover {
+              a {
+                @media (max-width: $screen-xs-max) {
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+        &.active > a {
+          background-color: $mine_shaft;
+          border: 1px solid #00BFFF;
+          color: $white;
+          &:hover {
+            background-color: $mine_shaft;
+            border: 1px solid #00BFFF;
+            color: $white;
+          }
+          &:focus {
+            background-color: $mine_shaft;
+            border: 1px solid #00BFFF;
+            color: $white;
+          }
+        }
+      }
+      > .active > a:focus {
+        background-color: $mine_shaft;
+        border: 1px solid #00BFFF;
+        color: $white;
+      }
+    }
+    .navbar-header {
+      a:hover {
+        text-decoration: none;
+      }
+      @media (max-width: $screen-xs-max) {
+        margin-right: 0;
+      }
+    }
+  }
+  .container-fluid {
+    padding-right: 0;
+  }
+  .searchfield {
+    float: right;
+    padding-right: 0;
+    margin-right: 0;
+    @media (max-width: $screen-xs-max) {
+      padding-right: 14px;
+    }
+    #pnext-search-input {
+      height: 33px;
+      border-radius: 4px 0 0 4px;
+      &:focus {
+        border-color: #ccc;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+      }
+    }
+    .input-group-btn:last-child > .btn {
+        height: 33px;
+    }
+  }
+}
+.dropdown-menu {
+  opacity: 1.0 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+  > li {
+    > a {
+      &:hover {
+        background-color: inherit;
+      }
+      &:focus {
+        background-color: inherit;
+      }
+    }
+    &:not(.divider) {
+      padding: 5px 0;
+    }
+    &:hover:not(.divider) {
+      background-color: $color_wild_sand_approx;
+      border: 1px solid #00BFFF;
+    }
+  }
+  .divider {
+    margin: 0;
+  }
+  .dropdown-submenu {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    &:hover {
+      > .dropdown-menu {
+        display: block;
+      }
+      > a:after {
+        border-left-color: $white;
+      }
+    }
+    &.pull-left {
+      float: none;
+      > .dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 6px 0 6px 6px;
+      }
+    }
+    > .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -6px;
+      margin-left: -1px;
+
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 0 6px 6px 6px;
+      opacity: 1.0 !important;
+    }
+    > a:after {
+      display: block;
+      content: " ";
+      float: right;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      border-left-color: $color_celeste_approx;
+      margin-top: 5px;
+      margin-right: -10px;
+    }
+  }
+  li:last-of-type:hover {
+
+    //Instead of the line below you could use @include border-bottom-right-radius($radius)
+    border-bottom-right-radius: 4px;
+
+    //Instead of the line below you could use @include border-bottom-left-radius($radius)
+    border-bottom-left-radius: 4px;
+  }
+  ul li:first-of-type:hover {
+
+    //Instead of the line below you could use @include border-top-right-radius($radius)
+    border-top-right-radius: 4px;
+  }
+}

@@ -1,0 +1,36 @@
+{% if page.show_breadcrumb %}
+<section class="row outerbreadcrumb hidden-xs">
+  <div class="rightPart hidden-xs hidden-md hidden-sm">
+    {% if page.relevantTo %}
+    <ul class="relevantTo">
+      {% for persona in page.relevantTo %}
+      <li class="{{persona}}" title="{{persona}}">&nbsp;</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="leftPart">
+    <ol class="breadcrumb">
+      {% for crumb in page.breadcrumbs %}
+        {% if forloop.last and crumb.use_dropdown == false %}
+          <li class="active">{{ crumb.title }}</li>
+        {% elsif crumb.use_dropdown == true %}
+          <li class="dropdown">
+            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="javascript:void(0)">{{crumb.title}}<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              {% for p in crumb.siblings %}
+              <li><a tabindex="-1" href="{{site.baseurl}}{% if crumb.use_dropdown_url_replace == true %}{{page.url | replace_first: crumb.url,p.url}}{% else %}{{p.url}}{% endif %}" {%if p.url==page.url%} class="active" {%endif%}>{{p.title}}</a>
+              </li>
+              {% if forloop.last != true %}
+              <li role="separator" class="divider"></li>
+              {% endif %} {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li><a href="{{site.baseurl}}{{crumb.url}}">{{crumb.title}}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}

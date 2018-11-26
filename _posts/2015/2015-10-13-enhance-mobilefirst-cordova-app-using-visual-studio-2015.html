@@ -1,0 +1,139 @@
+---
+title: Enhance MobileFirst Cordova app using Visual Studio 2015
+date: 2015-10-13 07:56:41.000000000 +03:00
+tags:
+- Android
+- Cordova
+- iOS
+- MobileFirst_Platform
+- Visual_Studio
+version:
+- 7.1
+author:
+  name: Vidyasagar MSC
+---
+<p>Exploring and Coding are part of every developer's life. While exploring you may come across many technologies, tools, libraries etc. Each technology has its own recommended IDE (Integrated Development Environment) for developing applications. Like
+
+<ul>
+    <li>Eclipse for Java Development.</li>
+    <li>Visual Studio for developing applications using Microsoft stack.</li>
+    <li>XCode for iOS and Mac application development.</li>
+    <li>Sublime Text, Brackets , TextMate(Mac) for web development etc.</li>
+</ul>
+
+<p>Coding using a new IDE is always a challenge as you have to learn about the new IDE and also you may already be familiar with an IDE and its shortcut keys. You will be more productive with an IDE which you love to code on.
+
+<h4>Creating a MFP Cordova application</h4>
+<p>After a blog post on <a href="http://vidyasagarmsc.com/2015/08/importing-visual-studio-cordova-project-with-ionic-and-angularjs-into-ibm-mobilefirst/">importing Visual Studio Cordova project into IBM MobileFirst </a>, there was an interesting use case requesting for vice-versa. So in this blog post you will be importing an IBM MobileFirst Platform Cordova application into Visual Studio(VS)2015.
+
+<p>With IBM MobileFirst platform<strong> v7.1</strong>, using MobileFirst Command Line Interface(CLI) you can create an Apache Cordova application with IBM MobileFirst features packaged as a plugin called <code>cordova-plugin-mfp</code>. As Cordova application creation is out-of-scope of this blog post, here's a <a href="{{site.baseurl}}/tutorials/en/foundation/7.1/hello-world/integrating-mfpf-sdk-in-cordova-applications/">link</a> to an article which gives you a detailed intro including CLI commands.
+
+<p>Using the CLI commands mentioned under "Building the sample step by step" section of above mentioned link, create a new Cordova project namely <strong>MFPCordovaApp.</strong> Follow the other instructions to add platforms and plugins (Vibration and Camera).Once successfully created Your Cordova folder structure should look like as shown in the figure below.
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/Screen-Shot-2015-10-02-at-4.58.58-pm.png" />
+
+<p>Here's the CLI Commands captured on a Mac Terminal for your reference:
+
+{% highlight bash %}
+Vidyasagars-MacBook-Pro:~ VMac$ mfp cordova create
+[?] Enter name of app: MFPCordovaApp
+[?] Enter the package ID: com.ibm.MFPCordovaApp
+[?] Enter the app version: 1.0.0
+[?] Select platforms to be supported by your app: android, ios
+[?] The following plugins will be automatically added to your app:
+cordova-plugin-mfp
+org.apache.cordova.device
+org.apache.cordova.dialogs
+org.apache.cordova.geolocation
+org.apache.cordova.globalization
+org.apache.cordova.inappbrowser
+org.apache.cordova.network-information
+Please press enter to continue...
+[?] Select additional plugins you would like to add: org.apache.cordova.camera 0.3.4 "Camera", org.apache.cordova.vibration 0.3.12 "Vibration"
+[?] Enter a path to an app template to be added: cordova-hello-world-mfp
+Embedded Cordova Command: cordova create "MFPCordovaApp" "com.ibm.MFPCordovaApp" "MFPCordovaApp" --copy-from="/Applications/IBM/MobileFirst-CLI/mobilefirst-cli/node_modules/cordovacmd/cordova/templates/cordova-hello-world-mfp"
+Adding android project...
+Creating Cordova project for the Android platform:
+Path: platforms/android
+Package: com.ibm.MFPCordovaApp
+Name: MFPCordovaApp
+Android target: android-19
+Copying template files...
+Project successfully created.
+Adding ios project...
+Adding "cordova-plugin-mfp"
+Installing "cordova-plugin-mfp" for android
+Installing "org.apache.cordova.device" for android
+Installing "org.apache.cordova.dialogs" for android
+Installing "org.apache.cordova.geolocation" for android
+Installing "org.apache.cordova.globalization" for android
+Installing "org.apache.cordova.inappbrowser" for android
+Installing "org.apache.cordova.network-information" for android
+Plugin install completed
+Installing "cordova-plugin-mfp" for ios
+Please manually merge MainActivity.original with CordovaApp.java in /platforms/android/src/[package_path]
+Installing "org.apache.cordova.device" for ios
+Installing "org.apache.cordova.dialogs" for ios
+Installing "org.apache.cordova.geolocation" for ios
+Installing "org.apache.cordova.globalization" for ios
+Installing "org.apache.cordova.inappbrowser" for ios
+Installing "org.apache.cordova.network-information" for ios
+Plugin install completed
+If you made changes to your main.m file, please manually merge main.m.bak with MFP's main.m
+Plugin "cordova-plugin-mfp" added successfully.
+Adding "org.apache.cordova.camera"
+Installing "org.apache.cordova.camera" for android
+Installing "org.apache.cordova.camera" for ios
+Plugin "org.apache.cordova.camera" added successfully.
+Adding "org.apache.cordova.vibration"
+Installing "org.apache.cordova.vibration" for android
+Installing "org.apache.cordova.vibration" for ios
+Plugin "org.apache.cordova.vibration" added successfully.
+Preparing for push...
+MFP App settings not found, configuring..
+Embedded Cordova Command: cordova prepare android
+Embedded Cordova Command: cordova prepare ios
+/Users/VMac/MFPCordovaApp/mobilefirst/com_ibm_MFPCordovaApp-android-1.0.0.wlapp has been built.
+/Users/VMac/MFPCordovaApp/mobilefirst/com_ibm_MFPCordovaApp-iphone-1.0.0.wlapp has been built.
+Push Completed Successfully.
+MFP Cordova project created successfully.
+{% endhighlight %}
+
+<p>Now, when you run your MFPCordovaApp on Mobile Browser Simulator (MBS) using the CLI command: <code>mfp cordova preview</code>. The app on iOS and Android after clicking on CAMERA button will call Cordova camera plugin and the output should look like as shown in the figure below
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/Screen-Shot-2015-10-02-at-5.30.24-pm.png" />
+
+<h4>Creating a Visual Studio Cordova Project</h4>
+<p>Follow the first three steps mentioned in this <a href="http://vidyasagarmsc.com/2015/08/importing-visual-studio-cordova-project-with-ionic-and-angularjs-into-ibm-mobilefirst/">link</a>.
+
+<b>Note:</b> Don't add any external libraries or frameworks namely Ionic or AngularJS as it is out-of-scope of this blog post.
+
+<p>Once successfully created, Navigate to your Visual Studio Cordova project folder and You should see the folder structure as shown in the figure below
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova1.png"/>
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova2.png" />
+
+
+<h4>Converting MFP Cordova project to Visual Studio Cordova project</h4>
+<p>As of today, there is no defined way to achieve this. So the below mentioned steps are just a workaround to open your MFP project in Visual Studio for further development.If you have observed , Both MFP cordova project and VS cordova project are given the same name (MFPCordovaApp). There's a strong reason behind this. Visual Studio understands solution (.SLN) files and project(.CSproj/.JSproj) files. Even a slight change in the name of your solution file may cause issues in loading the project in Visual studio. You will understand more on this once you follow the steps mentioned below.
+<ol>
+<li>Open MFPCordova project folder and create a new folder namely "MFPCordovaApp".</li>
+<li>Move all the other contents of MFPCordova project folder to the newly created MFPCordovaApp folder. (When you open MFPCordova project folder now, you should see only one folder i.e., MFPCordovaApp).</li>
+<li>Now, move <strong>MFPCordovaApp.sln</strong> file from VSCordova project folder to MFPCordova project folder. Your MFPCordova project folder should look like as shown in figure below.
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova1.png" /></li>
+<li>Move MFPCordovaApp.jsproj, taco.json files and merges folder of VSCordova project to MFPCordovaApp folder of MFPCordova project.</li>
+<li>Open <strong>MFPCordovaApp.sln</strong> of MFPCordova project in Visual studio 2015 and Click on "Show All Files" button highlighted in the figure below.
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova4.png" /></li>
+<li>Select greyed-out folders namely <em>bin,bld and platforms</em> and include them into the project by right-clicking individual folder and selecting "Include in Project" from the menu.
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova5.png" /></li>
+</ol>
+<p>Now when you run MFP migrated cordova project on Visual Studio 2015, The output on Android Ripple-Nexus emulator should look like as shown in the figure below
+
+<img alt="missing_alt" class="img-responsive" src="{{ site.baseurl }}/assets/backup/MFPCordova6.png" />
+<p>You can import your custom plugins and add more Cordova supported platforms by opening config.xml file in Visual Studio 2015.
+
+<p>Happy Coding!
