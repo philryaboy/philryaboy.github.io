@@ -1,0 +1,105 @@
+- name: Silvia Abrahão
+  track: foundations
+  uni: Universitat Politecnica de Valencia
+  country: Spain
+  image: sabrahao.png
+  url: https://sabrahao.wixsite.com/dsic-upv
+
+- name: Nelly Bencomo
+  track: foundations
+  uni: Aston University
+  country: UK
+  image: nbencomo.jpg
+  url: http://www.nellybencomo.me/
+
+- name: Jordi Cabot
+  track: practice
+  uni: ICREA
+  country: Spain
+  image: jcabot1.jpg
+  url: https://modeling-languages.com/
+
+- name: Marsha Chechik
+  track: 
+  uni: University of Toronto
+  country: Canada
+  image: mchechik.jpg
+  url: http://www.cs.toronto.edu/~chechik/
+
+- name: Benoit Combemale
+  track: 
+  uni: University of Toulouse
+  country: France
+  image: bcombemale.jpg
+  url: http://combemale.fr/
+
+- name: Martin Gogolla
+  track: 
+  uni: University of Bremen
+  country: Germany
+  image: mgogolla.jfif
+  url: http://www.db.informatik.uni-bremen.de/~gogolla/
+
+
+- name: Esther Guerra
+  track: 
+  uni: Autonomous University of Madrid
+  country: Spain
+  image: eguerra.gif
+  url: http://arantxa.ii.uam.es/~eguerra/
+
+- name: Marouane Kessentini 
+  track: 
+  uni: University of Michigan-Dearborn
+  country: USA
+  image: mkessentini.jfif
+  url: http://www-personal.umd.umich.edu/~marouane/  
+
+- name: Tanja Mayerhofer
+  track: 
+  uni: Technical University of Vienna
+  country: Austria
+  image: tmayerhofer.png
+  url: https://www.big.tuwien.ac.at/people/tmayerhofer/
+
+- name: Shiva Nejati
+  track: 
+  uni: University of Luxembourg
+  country: Luxembourg
+  image: snejati.png
+  url: https://wwwfr.uni.lu/snt/people/shiva_nejati
+
+- name: Julia Rubin
+  track: 
+  uni: University of British Columbia
+  country: Canada
+  image: jrubin.jpg
+  url: http://www.ece.ubc.ca/~mjulia/
+
+- name: Davide di Ruscio
+  track: 
+  uni: University of L’Aquila
+  country: Italy
+  image: druscio.jpg
+  url: http://www.di.univaq.it/diruscio/
+
+- name: Eugene Syriani
+  track: 
+  uni: University of Montreal
+  country: Canada
+  image: esyriani.jpg
+  url: http://www.iro.umontreal.ca/~syriani
+
+- name: Antonio Vallecillo
+  track: 
+  uni: University of Malaga
+  country: Spain
+  image: avallecillo.jpg
+  url: http://www.lcc.uma.es/~av
+
+- name: Tao Yue
+  track: 
+  uni: Simula Research
+  country: Norway
+  image: tyue.jpg
+  url: https://www.simula.no/people/tao

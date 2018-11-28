@@ -1,0 +1,363 @@
+- name: Simon Barner 
+  track: practice
+  uni: fortiss
+  country: Germany
+  image: sbarner.jpg
+  url: https://www.fortiss.org/en/about-us/people/simon-barner/
+
+- name: Kirstie Bellman 
+  track: practice
+  uni: The Aerospace Corporation
+  country: USA
+  image: kbellman.jpg
+  url: https://www.researchgate.net/profile/Kirstie_Bellman
+  
+- name: Olivier Biot
+  track: practice
+  uni: Sirris
+  country: Belgium
+  image: obiot.jpg
+  url: http://www.sirris.be/users/olivier-biot
+  
+- name: Francis Bordelau
+  track: practice
+  uni: Cmind
+  country: Canada
+  image: fbordelau.jfif
+  url: https://cmind.io
+  
+- name: Ruth Breu 
+  track: practice
+  uni: University of Innsbruck
+  country: Austria
+  image: rbreu.jpg
+  url: http://www.qe-lab.at/index.php?option=com_contact&view=contact&catid=1:contacts&id=1
+  
+- name: Achim Brucker
+  track: practice
+  uni: University of Sheffield 
+  country: UK
+  image: abrucker.png
+  url: https://www.brucker.ch/
+
+- name: Carolina Dania 
+  track: practice
+  uni: Booking.com
+  country: Netherlands
+  image: cdania.jpg
+  url: http://software.imdea.org/~dania/
+
+- name: Franck Fleurey 
+  track: practice
+  uni: TellU IoT
+  country: Norway
+  image: ffleurey.jpg
+  url: http://www.fleurey.com/franck/pmwiki.php
+
+- name: Thomas Goldschmidt
+  track: practice
+  uni: ABB
+  country: Germany 
+  image: tgoldschmidt.jpg
+  url: https://scholar.google.com/citations?user=2waXI8MAAAAJ&hl=en
+
+- name: Vinay Kulkarni 
+  track: practice
+  uni: TCS
+  country: India 
+  image: vkulkarni.jpg
+  url: https://scholar.google.co.in/citations?user=EiWmOoUAAAAJ
+
+- name: Rob Pettit 
+  track: practice
+  uni: The Aerospace Corporation
+  country: USA
+  image: rpetit.jpg
+  url: https://cs.gmu.edu/~rpettit/
+
+- name: Sreedhar Reddy 
+  track: practice
+  uni: TCS
+  country: India 
+  image: nopic.png
+  url: https://scholar.google.ch/citations?user=uZcrDZQAAAAJ&hl=en
+
+- name: Harald Ruess 
+  track: practice
+  uni: fortiss
+  country: Germany
+  image: hruess.jpg
+  url: https://www.fortiss.org/en/about-us/people/harald-ruess/
+
+- name: Ina Schieferdecker 
+  track: practice
+  uni: Fraunhofer FOKUS
+  country: Germany
+  image: ischieferdecker.jpg
+  url: http://www.schieferdecker-online.info/
+
+- name: Bran Selic 
+  track: practice
+  uni: Melina Software
+  country: Canada
+  image: bselic.jpg
+  url: https://scholar.google.com/citations?user=bzxh-TsAAAAJ
+
+- name: Cortland Starrett 
+  track: practice
+  uni: OneFact
+  country: USA
+  image: cstarrett.jpg
+  url: https://www.linkedin.com/in/cortlandstarrett
+
+- name: Salvador Trujillo 
+  track: practice
+  uni: Ikerlan
+  country: Spain
+  image: strujillo.jpg
+  url: http://www.onekin.org/portal/content/salvador-trujillo
+
+- name: Vadim Zaytsev
+  track: practice
+  uni: Raincode
+  country: Belgium
+  image: vzaytsev.jpg
+  url: http://grammarware.net/
+
+- name: Shaukat Ali
+  track: foundations
+  uni: Simula Research
+  country: Norway
+  image: sali.jpg
+  url: https://www.simula.no/people/shaukat
+
+- name: Daniel Amyot
+  track: foundations
+  uni: University of Ottawa
+  country: Canada
+  image: damyot.jpg
+  url: http://www.site.uottawa.ca/~damyot/
+
+- name: Anthony Anjorin
+  track: foundations
+  uni: University of Paderborn
+  country: Germany 
+  image: aanjorin.png
+  url: https://cs.uni-paderborn.de/dbis/personal/arbeitsgruppe/mitarbeiter/anthony-anjorin/visitenkarte/
+
+- name: Mira Balaban
+  track: foundations
+  uni: Ben-Gurion University of the Negev
+  country: Israel 
+  image: mbalaban.jpg
+  url: https://www.cs.bgu.ac.il/~mira/
+
+- name: Antonio Cicchetti
+  track: foundations
+  uni: Malardalen University
+  country: Sweden 
+  image: acicchetti.jpg
+  url: http://www.es.mdh.se/staff/198-Antonio_Cicchetti
+
+- name: Birgit Demuth
+  track: foundations
+  uni: TU Dresden
+  country: Germany 
+  image: bdemuth.jpg
+  url: https://scholar.google.de/citations?user=zRx4Tk8AAAAJ&hl=en
+
+- name: Juergen Dingel
+  track: foundations
+  uni: Queen's University
+  country: Canada 
+  image: jdingel.jpg
+  url: http://research.cs.queensu.ca/home/dingel/
+
+- name: Zinovy Diskin
+  track: foundations
+  uni: McMaster University/University of Waterloo
+  country: Canada
+  image: zdiskin.jpg
+  url: http://www.cs.toronto.edu/~zdiskin/
+
+- name: Gregor Engels
+  track: foundations
+  uni: University of Paderborn
+  country: Germany 
+  image: gengels.png
+  url: https://cs.uni-paderborn.de/dbis/personal/arbeitsgruppe/mitarbeiter/prof-gregor-engels/visitenkarte/
+
+- name: Michalis Famelis
+  track: foundations
+  uni: University of Montreal
+  country: Canada 
+  image: mfamelis.jpg
+  url: https://michalis.famelis.info/
+
+- name: Pieter van Gorp
+  track: foundations
+  uni: TU Eindhoven
+  country: The Netherlands 
+  image: pvan.jpeg
+  url: http://is.ieis.tue.nl/staff/pvgorp/wp/
+
+- name: Jeff Gray
+  track: foundations
+  uni: University of Alabama
+  country: USA 
+  image: jgray.jpg
+  url: http://gray.cs.ua.edu/
+
+- name: Regina Hebig
+  track: foundations
+  uni: Chalmers/University of Gothenberg
+  country: Sweden 
+  image: rhebig.jpg
+  url: https://www.chalmers.se/en/staff/Pages/hebig.aspx
+
+- name: Jennifer Horkoff
+  track: foundations
+  uni: Chalmers/University of Gothenberg
+  country: Sweden 
+  image: jhorkoff.png
+  url: http://www.chalmers.se/en/staff/Pages/jenho.aspx
+
+- name: Zhenjiang Hu
+  track: foundations
+  uni: NII
+  country: Japan 
+  image: zhu.jpg
+  url: http://research.nii.ac.jp/~hu/
+
+- name: Frederic Jouault
+  track: foundations
+  uni: ESEO
+  country: France 
+  image: fjouault.jpg
+  url: http://trame.eseo.fr/equipe/frederic-jouault.html
+
+- name: Gerti Kappel
+  track: foundations
+  uni: TU Vienna
+  country: Austria 
+  image: gkappel.jpg
+  url: https://www.big.tuwien.ac.at/people/gkappel/
+
+- name: Jörg Kienzle
+  track: foundations
+  uni: McGill University
+  country: Canada 
+  image: jkienzle.png
+  url: http://www.cs.mcgill.ca/~joerg/Home/Jorgs_Home.html
+
+- name: Dimitris Kolovos
+  track: foundations
+  uni: University of York
+  country: UK 
+  image: dkolovos.jpeg
+  url: http://dimitris.io
+
+- name: Thomas Kühne
+  track: foundations
+  uni: Victoria University of Wellington
+  country: New Zealand 
+  image: tkuehne.jpg
+  url: https://ecs.victoria.ac.nz/Main/ThomasKuehne
+
+- name: Mark Lawford
+  track: foundations
+  uni: McMaster University
+  country: Canada 
+  image: mlawford.jpg
+  url: https://www.cas.mcmaster.ca/~lawford/
+
+- name: Timothy Lethbridge
+  track: foundations
+  uni: University of Ottawa
+  country: Canada 
+  image: tlethbridge.jpg
+  url: http://www.site.uottawa.ca/~tcl/
+
+- name: Hong Mei
+  track: foundations
+  uni: Peking University
+  country: China 
+  image: hmei.jpg
+  url: http://sei.pku.edu.cn/~meih/index_en.html
+
+- name: Gunter Mussbacher
+  track: foundations
+  uni: McGill University
+  country: Canada 
+  image: gmussbacher.jpg
+  url: http://www.ece.mcgill.ca/~gmussb1/
+
+- name: Alfonso Pierantonio
+  track: foundations
+  uni: University of L'Aquila
+  country: Italy 
+  image: apierantonio.jpg
+  url: http://www.disim.univaq.it/main/home.php?users_username=alfonso
+
+- name: Fiona Polack
+  track: foundations
+  uni: Keele University
+  country: UK 
+  image: fpolack.jpeg
+  url: https://www.keele.ac.uk/scm/staff/professors/fionapolack/
+
+- name: Iris Reinhartz-Berger
+  track: foundations
+  uni: University of Haifa
+  country: Israel 
+  image: ireinhartz-berger.jpg
+  url: http://is.haifa.ac.il/~iris/
+
+- name: Bernhard Rumpe
+  track: foundations
+  uni: RWTH Aachen
+  country: Germany 
+  image: brumpe.jpg
+  url: http://www.se-rwth.de/~rumpe/
+
+- name: Mehrdad Sabatzedah
+  track: foundations
+  uni: University of Luxembourg
+  country: Luxembourg 
+  image: msabatzedah.png
+  url: http://people.svv.lu/sabetzadeh/
+
+- name: Martina Seidl
+  track: foundations
+  uni: Johannes Kepler University
+  country: Austria 
+  image: mseidl.jpg
+  url: http://fmv.jku.at/seidl/
+
+- name: Jocelyn Simmonds
+  track: foundations
+  uni: University of Chile
+  country: Chile 
+  image: jsimmonds.jpg
+  url: https://users.dcc.uchile.cl/~jsimmond/
+
+- name: Gabi Taentzer
+  track: foundations
+  uni: Philipps University Marburg
+  country: Germany 
+  image: gtaentzer.jpg
+  url: https://www.uni-marburg.de/fb12/arbeitsgruppen/swt/gabi-taentzer
+
+- name: Daniel Varro
+  track: foundations
+  uni: Budapest University of Technology and Economics
+  country: Hungary 
+  image: dvarro.jpg
+  url: https://www.mcgill.ca/ece/daniel-varro
+
+- name: Manuel Wimmer
+  track: foundations
+  uni: TU Vienna
+  country: Austria
+  image: mwimmer.jpg
+  url: https://www.big.tuwien.ac.at/people/mwimmer/

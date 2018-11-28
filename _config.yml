@@ -1,62 +1,42 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
 # Site settings
-title: Embedded Modeling Systems
-description: "Model based system engineering."
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: ACM/IEEE 21th International Conference on Model Driven Engineering Languages and Systems | MODELS 2018
+email: models2018@null.dev
+description: > # this means to ignore newlines until "baseurl:"
+ MODELS 2018 conference is taking place in Copenhagen, Denmark. MODELS is the premier conference series for model-based software and systems engineering which since 1998 has been covering all aspects of modeling, from languages and methods to tools and applications. 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the name of your domain
-#logo_url: svg/min/logo.svg
-
-# Hero
-hero: 
-    hero_img: hero.jpg
-    hero_title: MBSE
-    hero_description: "Model based system engineering."
-
-# Contact form
-api_token: # Enter API token here
-
-# Contact info
-contact:
-    phone: +49 32 50 540
-    emergency: +49 31 53 234
-    email: contact@yoursite.com
-    address: Guerickestrasse, 25 <br> Munich - Germany
-
-# Opening hours
-monday_friday: 9:00 – 18:00
-saturday: 10:00 – 17:00
-sunday: 10:00 – 15:00
-
-# Testimonials
-testimonials:
-    testimonials_img: parallax.jpg
-
-# Map
-map:
-    zoom: 20
-    address: Guerickestrasse, 25 <br> Munich - Germany
-    address_details: svg/min/logo.svg
-
-# Social settings
-facebook: http://facebook.com
-twitter: http://twitter.com
-feed: yes
-
-# Footer
-copyright: © 2018 fortiss GMBH - All rights reserved
+url: "https://modelsconf2018.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: modelsconf
+github_username:  modelsconf2018
 
 # Build settings
 markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
 
-exclude: [
-    package.json,
-    Gruntfile.js,
-    node_modules,
-    .sass-cache,
-    Gemfile,
-    Gemfile.lock,
-    .gitignore
-]
-
-# Theme Settings
-analytics: 
-google_verification:
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

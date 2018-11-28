@@ -1,22 +1,108 @@
-{% include doctype-head.html %}
-<body data-spy="scroll" data-offset="80" data-target=".scrollspy" id="top">
-    {% include svg-defs.svg %}
-    <!--[if lt IE 10]>
-        <p class="oldie">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> to better experience this site.</p>
-    <![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="google-site-verification" content="f5R1IhwofRFdTqE-K39mXOIwM9Rv69OLxi4-hX2ySfk" />
+    {% include head.html %}
+    {% seo %}
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip to main content</a>
 
-    {% include header.html %}
- 
-        {{ content }}
-           
+    {% include nav.html %}
+
+    <div class="container">
+      {% include page-header.html %}
+      <div class="row">
+        <div class="col-md-12">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
     {% include footer.html %}
-    
-    {% if site.analytics %}
-        {% include analytics.html %}
-    {% endif %}
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="{{ site.baseurl }}/js/all.min.js"></script>
-</body>
+	<!-- <script src="//code.jquery.com/jquery-latest.min.js"></script> -->
+  <script src="/assets/js/jquery-latest.min.js"></script>
+  <script src="/assets/js/jquery.flexslider.js"></script>
+    <!-- <script src="/assets/js/jquery-1.12.4.min.js"></script> -->
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script src="/assets/js/bootstrap-hover-dropdown.js"></script> -->
+    <script src="/assets/js/bootstrap-submenu.js"></script>
+
+    <script> 
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+});
+
+    </script>
+    <script type="text/javascript">
+      
+      $('[data-submenu]').submenupicker();
+    </script>
+
+    <script type="text/javascript">
+
+  var $session = $('.session');
+  var $days = $('.day');
+  
+  $('.filter_link').click(function(e){
+      e.preventDefault();
+      $(this).toggleClass('active');
+      // get if any buttons from data and tracks facets are active
+      var actives = $('.active')
+      var dateButtonsActive = false;
+      var tracksButtonsActive = false;
+      if(actives.length > 0){
+        // go through elements and check if we can find a data or track active
+        actives.each(function (index, element){
+          var parent = $(this).parent();  
+          if(parent.attr('data-facet-type') === 'date'){
+            dateButtonsActive = true;
+          }        
+          if(parent.attr('data-facet-type') === 'tracks'){
+            tracksButtonsActive = true;
+          }
+        })
+        //console.log("date buttons active: " + dateButtonsActive);
+        //console.log("tracksButtonsActive: " + tracksButtonsActive);
+
+        // inneficient. we need now to go through the active buttons again and show only those that are active
+        // for smaller sets seems fast enough
+        if(dateButtonsActive){
+          $days.hide();
+          actives.each(function (index, element){
+            console.log($(this).data('filter'));
+            $days.filter('.' + $(this).data('filter')).show()          
+          })
+        }
+        else {
+          $days.show();
+        }
+        
+        if(tracksButtonsActive){
+          $session.hide();
+          actives.each(function (index, element){
+            console.log($(this).data('filter'));
+            $session.filter('.' + $(this).data('filter')).show()   
+          })
+        }
+        else {
+          $session.show();
+        }
+      }
+      else {
+        $days.show();
+        $session.show();
+      }
+
+  });
+
+</script>
+	  
+  </body>
 </html>

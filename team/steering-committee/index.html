@@ -1,0 +1,14 @@
+---
+layout: default
+slug: team
+---
+<h2> Steering Committee </h2>
+
+<hr />
+{% for person in site.data.steering-committee %}
+<div><img class="committee-face" src="/assets/faces/{{ person.image }}" />
+<h4><a href="{{ person.url }}" target="_blank"> {{ person.name }} {% if person.role %} ({{ person.role }}) {% endif %} </a></h4><br/>
+<p>{{ person.uni }}</p></div>
+<br/>
+<hr/>
+{% endfor %}
